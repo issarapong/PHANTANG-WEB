@@ -15,3 +15,35 @@ https://tailwindcss.com/docs/guides/create-react-app
 ```
 pnpm run dev
 ```
+
+## Integrate-page-router
+
+📦PHANTANG-WEB
+ ┣ 📂public
+ ┃ ┗ 📜vite.svg
+ ┣ 📂src
+ ┃ ┣ 📂assets
+ ┃ ┃ ┗ 📜react.svg
+ ┃ ┣ 📂layouts
+ ┃ ┃ ┣ 📜Container.jsx
+ ┃ ┃ ┗ 📜Header.jsx
+ ┃ ┣ 📂pages
+ ┃ ┃ ┣ 📜GroupPage.jsx
+ ┃ ┃ ┣ 📜HomePage.jsx
+ ┃ ┃ ┣ 📜LoginPage.jsx
+ ┃ ┃ ┣ 📜ProfilePage.jsx
+ ┃ ┃ ┗ 📜RegisterPage.jsx
+ ┃ ┣ 📂routes
+ ┃ ┃ ┗ 📜Router.jsx
+ ┃ ┣ 📜App.jsx
+ ┃ ┣ 📜index.css
+ ┃ ┗ 📜main.jsx
+ ┣ 📜.eslintrc.cjs
+ ┣ 📜.gitignore
+ ┣ 📜README.md
+ ┣ 📜index.html
+ ┣ 📜package.json
+ ┣ 📜pnpm-lock.yaml
+ ┣ 📜postcss.config.js
+ ┣ 📜tailwind.config.js
+ ┗ 📜vite.config.js
