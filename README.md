@@ -1,4 +1,4 @@
-## Install package
+## 1. Install package
 ```
 pnpm create vite . --template react 
 pnpm add react-router-dom
@@ -7,17 +7,17 @@ pnpm add axios
 pnpm add -D tailwindcss postcss autoprefixer
 pnpm exec tailwindcss init -p
 ```
-## config tailwind  
+## 2. config tailwind  
 
 https://tailwindcss.com/docs/guides/create-react-app  
 
-## run with 
+## 3. run with 
 ```
 pnpm run dev
 ```
 
-## Integrate-page-router
-
+## 5. Integrate-page-router
+```
 📦PHANTANG-WEB
  ┣ 📂public
  ┃ ┗ 📜vite.svg
@@ -47,3 +47,4 @@ pnpm run dev
  ┣ 📜postcss.config.js
  ┣ 📜tailwind.config.js
  ┗ 📜vite.config.js
+ ```
