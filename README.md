@@ -48,3 +48,4 @@ pnpm run dev
  ┣ 📜tailwind.config.js
  ┗ 📜vite.config.js
  ```
+ ## 6. Integrate-form-register-login  
