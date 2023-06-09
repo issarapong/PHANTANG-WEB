@@ -70,11 +70,29 @@ src/features/auth/components/RegisterForm.jsx
 ### Login
 /src/features/auth/components/LoginForm.jsx
 
-.
+## 8. Fetchme-fetch-profile-logged-in
 
 
 
 
 
 ## ERROR
-e.preventDefault();  // ต้องกำหนดไว้ไม่งั้น Metthod ที่ส่งไปหลังบ้านจะ เป็น Get แทน
+#### รายละเอียด  Error 
+ส่ง Method ผิดพลาด แทนที่จะเป็น POST แต่ เป็น GET แทน   
+#### แก้ไขโดย
+e.preventDefault();  // ต้องกำหนดไว้ไม่งั้น Metthod ที่ส่งไปหลังบ้านจะ เป็น 
+
+#### รายละเอียด  Error 
+
+```
+Unexpected Application Error!
+Cannot read properties of null (reading 'firstName')
+```
+#### แก้ไขโดย
+
+กำหนด ? เพิ่มลงไป
+```
+ประกาศ const user = useSelector( state => state?.auth?.user)
+ 
+เรียกใช้ {user?.firstName} 😃 
+```

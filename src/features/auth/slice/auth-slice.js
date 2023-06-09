@@ -97,18 +97,19 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.loading = false;
       })
-  //   .addCase(fetchMe.fulfilled, (state, action)=> {
-  //     state.isAuthenticated = true;
-  //     state.user = action.payload;
-  //     state.initialLoading = false
-  //   })
-  //   .addCase(fetchMe.rejected, (state, action)=> {
-  //     state.error = action.payload;
-  //     state.initialLoading  = false;
-  //   })
-  //   .addCase(fetchMe.pending, state => {
-  //     state.initialLoading = true
-  //   })
+      .addCase(fetchMe.pending, state => {
+        //state.initialLoading = true
+      })
+    .addCase(fetchMe.fulfilled, (state, action)=> {
+      state.isAuthenticated = true;
+      state.user = action.payload;
+      state.initialLoading = false
+    })
+    .addCase(fetchMe.rejected, (state, action)=> {
+      state.error = action.payload;
+     // state.initialLoading  = false;
+    })
+
 });
 
 export default authSlice.reducer;
