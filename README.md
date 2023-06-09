@@ -49,3 +49,31 @@ pnpm run dev
  ┗ 📜vite.config.js
  ```
  ## 6. Integrate-form-register-login  
+
+
+ ## 7. Integrate-redux-axios-api 
+
+ ### Redux
+/src/features/auth/slice/auth-slice.js
+/src/store/index.js
+
+### Axios API
+
+/src/config/env.js
+/src/api/axios.js
+## Auth
+/src/utils/localstorage.js
+
+### Register
+src/features/auth/components/RegisterForm.jsx
+
+### Login
+/src/features/auth/components/LoginForm.jsx
+
+
+
+
+
+
+## ERROR
+e.preventDefault();  // ต้องกำหนดไว้ไม่งั้น Metthod ที่ส่งไปหลังบ้านจะ เป็น Get แทน
