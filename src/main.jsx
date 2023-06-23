@@ -11,6 +11,7 @@ import { fetchMe } from './features/auth/slice/auth-slice.js'
 
  if (getAccessToken()) {
    store.dispatch(fetchMe())
+   //console.log(getAccessToken())
  }
 
 

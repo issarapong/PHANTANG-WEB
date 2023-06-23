@@ -48,9 +48,10 @@ export const fetchMe = createAsyncThunk("auth/fetchMe", async (_, thunkApi) => {
   }
 });
 
-// export const logout = createAsyncThunk('auth/logout', async ()=>{
-//   removeAccessToken();
-// })
+export const logout = createAsyncThunk('auth/logout', async ()=>{
+  removeAccessToken();
+  
+})
 
 // auth/registerAsync/pending
 // auth/registerAsync/rejected
@@ -70,10 +71,10 @@ const authSlice = createSlice({
 
   extraReducers: (builder) =>
     builder
-      //   .addCase(logout.fulfilled, state => {
-      //     state.isAuthenticated = false;
-      //     state.user = null
-      //   })
+        .addCase(logout.fulfilled, state => {
+          state.isAuthenticated = false;
+          state.user = null
+        })
       .addCase(registerAsync.pending, (state) => {
         state.loading = true;
       })
@@ -97,8 +98,8 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.loading = false;
       })
-      .addCase(fetchMe.pending, state => {
-        //state.initialLoading = true
+      .addCase(fetchMe.pending, (state) => {
+        state.initialLoading = true
       })
     .addCase(fetchMe.fulfilled, (state, action)=> {
       state.isAuthenticated = true;
@@ -107,7 +108,7 @@ const authSlice = createSlice({
     })
     .addCase(fetchMe.rejected, (state, action)=> {
       state.error = action.payload;
-     // state.initialLoading  = false;
+     state.initialLoading  = false;
     })
 
 });

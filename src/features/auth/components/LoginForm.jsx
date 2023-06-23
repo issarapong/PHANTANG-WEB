@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginAsync } from "../slice/auth-slice";
+import { useNavigate } from "react-router-dom";
 
 const initialInput = {
   emailOrMobile: '',
@@ -9,7 +10,7 @@ const initialInput = {
 
 export default function LoginForm() {
   const [input, setInput] = useState(initialInput)
-
+  const navigate = useNavigate()  // ใช้ Forwad path หลัง Login ตัวอย่างการเรียกใช้  navigate('/');
   const dispatch = useDispatch();
 
   const handleChangeInput = (e) => {
@@ -20,6 +21,7 @@ export default function LoginForm() {
     try {
       e.preventDefault();
       await dispatch(loginAsync(input)).unwrap();
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
@@ -27,7 +29,161 @@ export default function LoginForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmitForm}>
+
+<div>
+        {/* Content */}
+        <div className="w-full bg-grey-lightest" style={{ paddingTop: "4rem" }}>
+          <div className="container mx-auto py-8">
+            <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
+            <form onSubmit={handleSubmitForm} >
+
+              <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
+                เข้าสู่ระบบ
+              </div>
+              <div className="py-4 px-8">
+                {/* <div className="flex mb-4">
+                  <div className="w-1/2 mr-1">
+                    <label
+                      className="block text-grey-darker text-sm font-bold mb-2"
+                      htmlFor="first_name"
+                    >
+                      ชื่อ
+                    </label>
+                    <input
+                      className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                      // id="first_name"
+                      // type="text"
+                      // placeholder="ระบุชื่อของคุณ"
+                      type="text"
+                      placeholder="ระบุชื่อของคุณ"
+                      name="firstName"
+                      value={input.firstName}
+                      onChange={handleChangeInput}
+                      required
+                    />
+                  </div>
+                  <div className="w-1/2 ml-1">
+                    <label
+                      className="block text-grey-darker text-sm font-bold mb-2"
+                      htmlFor="last_name"
+                    >
+                      นามสกุล
+                    </label>
+                    <input
+                      className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                      // id="last_name"
+                      // type="text"
+                      // placeholder="ระบุนามสกุลของคุณ"
+                      type="text"
+                      placeholder="ระบุนามสกุลของคุณ"
+                      name="lastName"
+                      value={input.lastName}
+                      onChange={handleChangeInput}
+                      required
+                    />
+                  </div>
+                </div> */}
+                <div className="mb-4">
+                  <label
+                    className="block text-grey-darker text-sm font-bold mb-2"
+                    htmlFor="email"
+                  >
+                    อีเมลล์
+                  </label>
+                  <input
+                    className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    // id="email"
+                    // type="email"
+                    // placeholder="ระบุอีเมลของคุณ"
+                    type="email"
+                    placeholder="ระบุอีเมลของคุณ"
+                    name="emailOrMobile"            
+                    value={input.emailOrMobile}
+                    onChange={handleChangeInput}
+                    //required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    className="block text-grey-darker text-sm font-bold mb-2"
+                    htmlFor="password"
+                  >
+                    รหัสผ่าน
+                  </label>
+                  <input
+                    className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    // id="password"
+                    // type="password"
+                    // placeholder="ระบุรหัสผ่านของคุณ"
+                    type="password"
+                    placeholder="ระบุรหัสผ่านของคุณ"
+                    name="password"
+                    value ={input.password}
+                    onChange={handleChangeInput}
+                    minLength="6" 
+                    required
+                  />
+                  
+                  {/* <p className="text-grey text-xs mt-1">ขั้นต่ำ 6 ตัวอักษร</p> */}
+                </div>
+                {/* <div className="mb-4">
+                  <label
+                    className="block text-grey-darker text-sm font-bold mb-2"
+                    htmlFor="password"
+                  >
+                    ยืนยันรหัสผ่าน
+                  </label>
+                  <input
+                    className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                    // id="password"
+                    // type="password"
+                    // placeholder="ระบุรหัสผ่านของคุณ"
+                    type="txt"
+                    placeholder="ยืนยันรหัสผ่าน"
+                    name="confirmPassword"
+                    value={input.confirmPassword}
+                    onChange={handleChangeInput}
+                    required
+                  />
+                  
+                  <p className="text-grey text-xs mt-1">ขั้นต่ำ 6 ตัวอักษร</p>
+                </div> */}
+                <div className="flex items-center justify-between mt-8">
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    type="submit"
+                  >
+                    เข้าสู่ระบบ
+                  </button>
+                </div>
+              </div>
+              </form>
+
+            </div>
+            <p className="text-center my-4">
+              <a
+                href="/register"
+                className="text-grey-dark text-sm no-underline hover:text-grey-darker"
+              >
+                ยังไม่มีแอคเค้า ? สมัครสมาชิก
+              </a>
+            </p>
+          </div>
+        </div>
+        {/* Footer */}
+        <footer className="w-full bg-grey-lighter py-8">
+          <div className="container mx-auto text-center px-8">
+            <p className="text-grey-dark mb-2 text-sm">
+              
+              <span className="font-bold">PHANTANG.COM</span>
+            </p>
+          </div>
+        </footer>
+      </div>
+
+
+
+      {/* <form onSubmit={handleSubmitForm}>
         <div className="container">
           <h1>เข้าสู่ระบบ</h1>
           <p>กรอกข้อมูลเพื่อเข้าสู่ระบบ</p>
@@ -56,10 +212,7 @@ export default function LoginForm() {
           />
 
           <hr />
-          <p>
-            By creating an account you agree to our{" "}
-            <a href="#">Terms &amp; Privacy</a>.
-          </p>
+        
 
           <div className="flex gap-3 max-w-sm">
             <button className="py-2.5 px-6 rounded-lg text-sm font-medium text-white bg-teal-600">
@@ -70,12 +223,8 @@ export default function LoginForm() {
             </button>
           </div>
         </div>
-        <div className="container signin">
-          <p>
-            Already have an account? <a href="#">Sign in</a>.
-          </p>
-        </div>
-      </form>
+    
+      </form> */}
     </>
   );
 }

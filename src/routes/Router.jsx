@@ -3,8 +3,12 @@ import LoginPage from '../pages/LoginPage';
 import Container from '../layouts/Container';
 import HomePage from '../pages/HomePage';
 import RegisterPage from '../pages/RegisterPage';
-import GroupPage from '../pages/GroupPage';
+//import GroupPage from '../pages/GroupPage';
 import ProfilePage from '../pages/ProfilePage';
+import ProtectedRoute from '../features/auth/components/ProtectedRoute';
+//import GroupViewPage from '../pages/GroupViewPage';
+import PostPage from '../pages/PostPage';
+import PostViewPage from '../pages/PostViewPage';
 
 
 
@@ -17,25 +21,42 @@ const router = createBrowserRouter([
       children: [
         {
           path: '/',
-          element: <HomePage />
+          element: <HomePage /> 
         },  
         {
           path: '/register',
           element: <RegisterPage />
         },
         {
-          path: '/profile',
-          element: <ProfilePage />
-  
-        }, 
-        {
           path: '/login',
           element: <LoginPage />
         },
-        {
-        path: '/group',
-        element: <GroupPage />
-      }
+    //     {
+    //     path: '/group',
+    //     element: <GroupPage />
+    //   },
+    //   {
+    //   path: '/group/:groupId',
+    //   element: <GroupViewPage />
+    // },
+     {
+      path: '/post',
+      element: <PostPage />
+     },
+     {
+     path: '/post/:postId',
+     element: <PostViewPage />
+    },
+      {
+        path: '/profile',
+        element:( 
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+         
+        )
+
+      }, 
       
       ]
     }
